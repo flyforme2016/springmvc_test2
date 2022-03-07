@@ -22,8 +22,16 @@ public class CodeDao {
 		return sqlSession.selectList(namespace + ".selectList", "");
 	}
 	
+	public Code selectOne(CodeVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOne", vo);
+	}
+	
 	public int insert(Code dto){ 
 		return sqlSession.insert(namespace + ".insert", dto);
+	}
+
+	public int update(Code dto){ 
+		return sqlSession.update(namespace + ".update", dto);
 	}
 	
 }

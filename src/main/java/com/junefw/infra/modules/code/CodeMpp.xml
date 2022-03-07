@@ -17,17 +17,34 @@
 				infrCodeGroup
 	</select>
 	
-	<insert id="insert">
-			insert into infrMember (
-				ifcgId
+	<select id="selectOne" resultMap="resultMapObj">
+			select
+				ifcgSeq
 				,ifcgName
 				,ifcgDelNy
+			from
+				infrCodeGroup
+			where 1=1
+				and ifcgSeq = #{ifcgSeq}
+	</select>
+	
+	<insert id="insert">
+			insert into infrCodeGroup (
+				ifcgName
+				,ifcgDelNy
 			) values (
-				#{ifcgId}
-				,#{ifcgName}
+				#{ifcgName}
 				,0
 			)
 	</insert>
 	
+	<update id="update">
+			UPDATE
+				infrCodegroup
+			SET 
+				ifcgName = #{ifcgName}
+			WHERE 1=1
+				AND ifcgSeq = #{ifcgSeq}
+	</update>
 	
 </mapper>

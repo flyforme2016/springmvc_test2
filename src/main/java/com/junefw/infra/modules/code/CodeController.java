@@ -7,8 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.junefw.infra.modules.member.Member;
-
 @Controller
 public class CodeController {
 
@@ -30,6 +28,16 @@ public class CodeController {
 
 		return "code/codeGroupForm";
 	}
+
+	@RequestMapping(value = "/code/codeGroupForm2")
+	public String codeGroupForm2(CodeVo vo, Model model) throws Exception {
+		
+		Code rt = service.selectOne(vo);
+		
+		model.addAttribute("rt", rt);
+		
+		return "code/codeGroupForm2";
+	}
 	
 	@RequestMapping(value = "/code/codeGroupInst")
 	public String codeGroupInst(Model model, Code dto) throws Exception {
@@ -40,6 +48,26 @@ public class CodeController {
 		System.out.println("result: " + result);
 
 		return "code/codeGroupList";
+	}
+
+	@RequestMapping(value = "/code/codeGroupUpdt")
+	public String codeGroupUpdt(Code dto) throws Exception {
+		
+		service.update(dto);
+		
+		return "";
+	}
+	
+	
+	@RequestMapping(value = "/code/codeGroupView")
+	public String codeGroupView(Model model, CodeVo vo) throws Exception{
+		
+		System.out.println("vo.getIfcgSeq(): " + vo.getIfcgSeq());
+		Code rt = service.selectOne(vo);
+		
+		model.addAttribute("item", rt);
+		
+		return "code/codeGroupView";
 	}
 	
 }

@@ -7,6 +7,7 @@ public class Code {
 	private String ifcgName;
 	private Integer ifcgDelNy;
 //------------
+
 	public String getIfcgSeq() {return ifcgSeq;}
 	public void setIfcgSeq(String ifcgSeq) {this.ifcgSeq = ifcgSeq;}
 	
