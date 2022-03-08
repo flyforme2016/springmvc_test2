@@ -8,6 +8,8 @@
 
     <resultMap id="resultMapObj" type="com.junefw.infra.modules.code.Code"></resultMap>
 
+	<!-- infraCodeGroup -->
+	
 	<select id="selectList" resultMap="resultMapObj">
 			select
 				ifcgSeq
@@ -47,4 +49,49 @@
 				AND ifcgSeq = #{ifcgSeq}
 	</update>
 	
+	<!-- infrCode -->
+	
+	<select id="selectListCode" resultMap="resultMapObj">
+			select
+				ifcgSeq
+				,ifcdSeq
+				, ifcdName
+				, ifcdDelNy
+			from
+				infrCode
+			where 1=1
+			ORDER BY ifcgSeq ASC			
+	</select>
+	
+	<select id="selectOneCode" resultMap="resultMapObj">
+			select
+				ifcdSeq
+				,ifcdName
+				,ifcdDelNy
+			from
+				infrCode
+			where 1=1
+				and ifcdSeq = #{ifcdSeq}
+	</select>
+	
+	<insert id="insertCode">
+			insert into infrCode (
+				ifcdName
+				,ifcdDelNy
+				,ifcgSeq
+			) values (
+				#{ifcdName}
+				,0
+				,#{ifcgSeq}
+			)
+	</insert>
+	
+	<update id="updateCode">
+			UPDATE
+				infrCode
+			SET 
+				ifcdName = #{ifcdName}
+			WHERE 1=1
+				AND ifcdSeq = #{ifcdSeq}
+	</update>
 </mapper>

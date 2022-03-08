@@ -11,21 +11,24 @@ public class CodeServiceImpl implements CodeService{
 	@Autowired
 	CodeDao dao;
 
+	/* infrCodeGroup */
 	@Override
-	public List<Code> selectList() throws Exception {
-		return dao.selectList();
-	}
+	public List<Code> selectList() throws Exception {return dao.selectList();}
+	@Override
+	public int insert(Code dto) throws Exception{return dao.insert(dto);}
+	@Override
+	public Code selectOne(CodeVo vo) throws Exception{return dao.selectOne(vo);}
+	@Override
+	public int update(Code dto) throws Exception{return dao.update(dto);}
 	
-	public int insert(Code dto) throws Exception{
-		return dao.insert(dto);
-	}
-	
-	public Code selectOne(CodeVo vo) throws Exception{
-		return dao.selectOne(vo);
-	}
-
-	public int update(Code dto) throws Exception{
-		return dao.update(dto);
-	}
+	/* infrCode */
+	@Override
+	public List<Code> selectListCode() throws Exception {return dao.selectListCode();}
+	@Override
+	public Code selectOneCode(CodeVo vo) throws Exception {return dao.selectOneCode(vo);}
+	@Override
+	public int insertCode(Code dto) throws Exception {return dao.insertCode(dto);}
+	@Override
+	public int updateCode(Code dto) throws Exception {return dao.updateCode(dto);}
 
 }
