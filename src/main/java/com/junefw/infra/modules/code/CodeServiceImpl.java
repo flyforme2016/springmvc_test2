@@ -13,7 +13,7 @@ public class CodeServiceImpl implements CodeService{
 
 	/* infrCodeGroup */
 	@Override
-	public List<Code> selectList() throws Exception {return dao.selectList();}
+	public List<Code> selectList(CodeVo vo) throws Exception {return dao.selectList(vo);}
 	@Override
 	public int insert(Code dto) throws Exception{return dao.insert(dto);}
 	@Override
@@ -23,7 +23,7 @@ public class CodeServiceImpl implements CodeService{
 	
 	/* infrCode */
 	@Override
-	public List<Code> selectListCode() throws Exception {return dao.selectListCode();}
+	public List<Code> selectListCode(CodeVo vo) throws Exception {return dao.selectListCode(vo);}
 	@Override
 	public Code selectOneCode(CodeVo vo) throws Exception {return dao.selectOneCode(vo);}
 	@Override

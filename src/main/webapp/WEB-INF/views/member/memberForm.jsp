@@ -6,8 +6,10 @@
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
 
-<form method="post" action="memberInst">
-	<input type="text" name="ifmmId" placeholder="아이디">
-	<input type="text" name="ifmmName" placeholder="이름">
+<form method="post" action="/infra/member/memberInst">
+	
+	<input type="text" name="ifmmId"" placeholder="ifmmId">
+	<input type="text" name="ifmmName" placeholder="ifmmName">
+	<input type="text" name="ifmmDelNy" placeholder="ifmmDelNy">
 	<input type="submit" value="제출">
 </form>

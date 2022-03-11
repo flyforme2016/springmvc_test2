@@ -11,12 +11,19 @@
 	<!-- infraCodeGroup -->
 	
 	<select id="selectList" resultMap="resultMapObj">
-			select
+			SELECT
 				ifcgSeq
 				, ifcgName
 				, ifcgDelNy
-			from
+			FROM
 				infrCodeGroup
+			WHERE 1=1
+				<choose>
+					<when test="shIfcgDelNy == 0">AND ifcgDelNy = 0</when>
+					<when test="shIfcgDelNy == 1">AND ifcgDelNy = 1</when>
+				</choose>
+				<if test="shIfcgName != null and !shIfcgName.equals('')"> AND ifcgName LIKE concat('%', #{shIfcgName}, '%')</if>
+				
 	</select>
 	
 	<select id="selectOne" resultMap="resultMapObj">
@@ -60,6 +67,8 @@
 			from
 				infrCode
 			where 1=1
+				AND ifcdDelNy = 0
+				<if test="shIfcgSeq != null and !shIfcgSeq.equals('')"> AND ifcgSeq = #{shIfcgSeq}</if>
 			ORDER BY ifcgSeq ASC			
 	</select>
 	

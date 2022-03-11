@@ -5,8 +5,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
+<c:out value="${item.ifmmSeq}"/> | <c:out value="${item.ifmmName}"/> | <c:out value="${item.ifmmDelNy}"/> <br>
 
-<c:out value="${item.ifcgSeq}"/> | <c:out value="${item.ifcgName}"/> | <c:out value="${item.ifcgDelNy}"/> <br>
-
-<a href="/infra/code/codeGroupForm2?ifcgSeq=<c:out value="${item.ifcgSeq}"/>">수정</a>
-<a href="/infra/code/codeGroupForm?ifcgSeq=<c:out value="${item.ifcgSeq}"/>">등록</a>
+<a href="/infra/member/memberForm2?ifmmSeq=<c:out value="${item.ifmmSeq}"/>">수정</a>
+<a href="/infra/member/memberList">목록</a>
+<%-- <a href="/infra/code/codeGroupForm?ifcgSeq=<c:out value="${item.ifcgSeq}"/>">등록</a> --%>

@@ -2,9 +2,9 @@ package com.junefw.infra.modules.member;
 
 public class Member {
 	
-	private String ifmmSeq = "";
-	private String ifmmId = "";
-	private String ifmmName= "";
+	private String ifmmSeq;
+	private String ifmmId;
+	private String ifmmName;
 	private Integer ifmmDelNy;
 //------------
 	public String getIfmmSeq() {
@@ -24,6 +24,12 @@ public class Member {
 	}
 	public void setIfmmName(String ifmmName) {
 		this.ifmmName = ifmmName;
+	}
+	public Integer getIfmmDelNy() {
+		return ifmmDelNy;
+	}
+	public void setIfmmDelNy(Integer ifmmDelNy) {
+		this.ifmmDelNy = ifmmDelNy;
 	}
 
 }
