@@ -5,15 +5,19 @@ public class CodeVo {
 //  infrCodeGroup
 	private String ifcgSeq;
 	
-	//search
+//  infrCodeGroup search
 	private String shIfcgName;
 	private Integer shIfcgDelNy;
 	
 //  infrCode
 	private String ifcdSeq;
 	
-	//search
+//  infrCode search
 	private String shIfcgSeq;
+	
+//  common
+	private String shOption;
+	private String shValue;
 	
 //------------
 
@@ -31,5 +35,11 @@ public class CodeVo {
 	
 	public String getShIfcgSeq() {return shIfcgSeq;}
 	public void setShIfcgSeq(String shIfcgSeq) {this.shIfcgSeq = shIfcgSeq;}
+	
+	public String getShOption() {return shOption;}
+	public void setShOption(String shOption) {this.shOption = shOption;}
+	
+	public String getShValue() {return shValue;}
+	public void setShValue(String shValue) {this.shValue = shValue;}
 	
 }

@@ -13,8 +13,9 @@
 	<select id="selectList" resultMap="resultMapObj">
 			SELECT
 				ifcgSeq
-				, ifcgName
-				, ifcgDelNy
+				,ifcgName
+				,ifcgNameEng
+				,ifcgDelNy
 			FROM
 				infrCodeGroup
 			WHERE 1=1
@@ -23,7 +24,10 @@
 					<when test="shIfcgDelNy == 1">AND ifcgDelNy = 1</when>
 				</choose>
 				<if test="shIfcgName != null and !shIfcgName.equals('')"> AND ifcgName LIKE concat('%', #{shIfcgName}, '%')</if>
-				
+				<choose>
+					<when test="shOption == 1">AND ifcgName LIKE concat('%', #{shValue}, '%')</when>
+					<when test="shOption == 2">AND ifcgNameEng LIKE concat('%', #{shValue}, '%')</when>
+				</choose>
 	</select>
 	
 	<select id="selectOne" resultMap="resultMapObj">
