@@ -10,24 +10,35 @@
 
 	<!-- infraCodeGroup -->
 	
+	<sql id="selectCommon">
+		FROM
+				infrCodeGroup
+		WHERE 1=1
+			<choose>
+				<when test="shIfcgDelNy == 0">AND ifcgDelNy = 0</when>
+				<when test="shIfcgDelNy == 1">AND ifcgDelNy = 1</when>
+			</choose>
+			<if test="shIfcgName != null and !shIfcgName.equals('')"> AND ifcgName LIKE concat('%', #{shIfcgName}, '%')</if>
+			<choose>
+				<when test="shOption == 1">AND ifcgName LIKE concat('%', #{shValue}, '%')</when>
+				<when test="shOption == 2">AND ifcgNameEng LIKE concat('%', #{shValue}, '%')</when>
+			</choose>
+	</sql>
+	
+	<select id="selectOneCount" resultType="Integer">
+		SELECT
+				count(*)
+		<include refid="selectCommon" />
+	</select>
+	
 	<select id="selectList" resultMap="resultMapObj">
 			SELECT
 				ifcgSeq
 				,ifcgName
 				,ifcgNameEng
 				,ifcgDelNy
-			FROM
-				infrCodeGroup
-			WHERE 1=1
-				<choose>
-					<when test="shIfcgDelNy == 0">AND ifcgDelNy = 0</when>
-					<when test="shIfcgDelNy == 1">AND ifcgDelNy = 1</when>
-				</choose>
-				<if test="shIfcgName != null and !shIfcgName.equals('')"> AND ifcgName LIKE concat('%', #{shIfcgName}, '%')</if>
-				<choose>
-					<when test="shOption == 1">AND ifcgName LIKE concat('%', #{shValue}, '%')</when>
-					<when test="shOption == 2">AND ifcgNameEng LIKE concat('%', #{shValue}, '%')</when>
-				</choose>
+			<include refid="selectCommon" />
+			limit  #{startRnumForMysql}, #{rowNumToShow}
 	</select>
 	
 	<select id="selectOne" resultMap="resultMapObj">
