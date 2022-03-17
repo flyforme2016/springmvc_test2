@@ -16,7 +16,7 @@
 
 <input type="submit" name="search">
 <br>
-
+ifcgSeq | ifcdSeq | ifcdName ifcdDelNy <br>
 <c:choose>
 	<c:when test="${fn:length(list) eq 0}">
 		<tr>

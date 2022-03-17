@@ -15,16 +15,19 @@
 	<option value="1">Y
 </select>
 ||
-회원이름 : <input type="text" name="shIfcgName">
+<input type="text" name="shIfcgName" id= "shIfcgName" placeholder="ifcgName">
 ||
-<select name="shOption">
+<select name="shOption" id="shOption">
 	<option value="">::검색구분::
 	<option value="1">한글
 	<option value="2">영문
 </select>
-<input type="text" name="shValue">
-<input type="submit" name="search">
+<input type="text" name="shValue" id="shValue" placeholder="ifcgName">
+<input type="submit" name="search" id="btnSubmit">
+
 <br>
+ifcgSeq | ifcgName | ifcgNameEng | ifcgDelNy <br>
+
 <c:choose>
 	<c:when test="${fn:length(list) eq 0}">
 		<tr>
@@ -63,3 +66,15 @@
 
   </ul>
 </nav>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="infra/resources/js/validation.js"></script>
+
+<script type="text/javascript">
+
+	$("#btnSubmit").on("click", function)(){
+		alert("jquery: " +        $("#shIfcgName").val()                     );
+		alert("javascript: " + document.getElmentById("#shIfcgName").value   );
+	});
+
+</script>

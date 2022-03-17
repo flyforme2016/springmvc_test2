@@ -80,9 +80,9 @@ public class CodeController {
 		return "code/codeGroupView";
 	}
 
-	/* infrCode */
+	/* ------------------------- infrCode -------------------------*/
 	@RequestMapping(value = "/code/codeList")
-	public String codeList(CodeVo vo, Model model) throws Exception {
+	public String codeList(@ModelAttribute("vo") CodeVo vo, Model model) throws Exception {
 
 		List<Code> list = service.selectListCode(vo);
 		model.addAttribute("list", list);
